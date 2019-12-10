@@ -1,100 +1,137 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('content')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+<!-- Start Banner Area -->
+<section class="home-banner-area relative">
+    <div class="container">
+        <div class="row fullscreen d-flex align-items-center justify-content-center">
+            <div class="banner-content col-lg-8 col-md-12">
+                <h1 class="wow fadeIn" data-wow-duration="4s"> </h1>
+                <p class="text-white">  </p>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="input-wrap">
+                    <form action="" class="form-box d-flex justify-content-between">
+                        <input type="text" placeholder="Search Courses" class="form-control" name="search">
+                        <button type="submit" class="btn search-btn">Search</button>
+                    </form>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+    <div class="rocket-img">
+        <img src="{!! asset('/storage/images/guitar.png') !!}" alt="guitar">
+    </div>
+</section>
+<!-- End Banner Area -->
+
+<!-- Start top-category-widget Area -->
+<section class="about-area section-gap">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-5 col-md-6 about-left">
+                <img class="img-fluid" src="{!! asset('/storage/images/music.svg') !!}" alt="">
+            </div>
+            <div class="offset-lg-1 col-lg-6 offset-md-0 col-md-12 about-right">
+                <h1>Songs </h1>
+                <div class="wow fadeIn" data-wow-duration="1s">
+                    <p> 131</p>
+                </div>
+                <h1>Bands </h1>
+                <div class="wow fadeIn" data-wow-duration="1s">
+                    <p> 66</p>
+                </div>
+                <h1>Chords </h1>
+                <div class="wow fadeIn" data-wow-duration="1s">
+                    <p> 235</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End top-category-widget Area -->
+
+<!-- Start Latest Songs -->
+<section class="post-content-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 offset-1 posts-list">
+                <h2 class="mb-30">Latest Songs</h2>
+                <div class="single-post row">
+                    <div class="col-lg-3  col-md-3 meta-details">
+                        <div class="user-details row">
+                            <p class="user-name col-lg-12 col-md-12 col-6"><a href="#">Mark wiens</a> <span class="lnr lnr-user"></span></p>
+                            <p class="date col-lg-12 col-md-12 col-6"><a href="#">12 Dec, 2017</a> <span class="lnr lnr-calendar-full"></span></p>
+                            <p class="view col-lg-12 col-md-12 col-6"><a href="#">1.2M Views</a> <span class="lnr lnr-eye"></span></p>
+                            <p class="comments col-lg-12 col-md-12 col-6"><a href="#">06 Comments</a> <span class="lnr lnr-bubble"></span></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-9 ">
+                        <a href="/">
+                            <div class="feature-img">
+                                <img class="img-fluid" src="img/blog/feature-img1.jpg" alt="">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End About Area -->
+
+
+<!-- Start Courses Area -->
+<section class="courses-area section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 offset-1 posts-list">
+                <h2 class="mb-30">Latest Bands</h2>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-lg-5 about-right">
+                <div class="wow fadeIn" data-wow-duration="1s">
+                    <img class="img-fluid" src="{!! asset('/storage/images/band.svg') !!}" alt="">
+                </div>
+            </div>
+            <div class="offset-lg-1 col-lg-6">
+                <div class="courses-right">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <ul class="courses-list">
+                                <li>
+                                    <a class="wow fadeInLeft" href="courses.html" data-wow-duration="1s" data-wow-delay=".1s">
+                                        <i class="fa fa-music"></i> Development
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="wow fadeInLeft" href="courses.html" data-wow-duration="1s" data-wow-delay=".3s">
+                                        <i class="fa fa-book"></i> IT & Software
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <ul class="courses-list">
+                                <li>
+                                    <a class="wow fadeInRight" href="courses.html" data-wow-duration="1s" data-wow-delay="1.3s">
+                                        <i class="fa fa-book"></i> Data Science
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="wow fadeInRight" href="courses.html" data-wow-duration="1s" data-wow-delay="1.1s">
+                                        <i class="fa fa-book"></i> Design
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Courses Area -->
+
+@endsection

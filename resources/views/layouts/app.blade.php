@@ -1,80 +1,81 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="no-js">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <head>
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <!-- Mobile Specific Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Favicon-->
+        <link rel="shortcut icon" href="{!! asset('/storage/images/logo.png') !!}">
+        <!-- Author Meta -->
+        <meta name="Ivan Demirovic" content="Song Book">
+        <!-- Meta Description -->
+        <meta name="description" content="">
+        <!-- Meta Keyword -->
+        <meta name="keywords" content="">
+        <!-- meta character set -->
+        <meta charset="UTF-8">
+        <!-- Site Title -->
+        <title>{{ config('app.name', 'Vino I Gitara') }}</title>
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+        <!-- Google Font ============================================= -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500i" rel="stylesheet">
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+        <!-- CSS ============================================= -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        <link rel="stylesheet" href="{!! asset('css/linearicons.css') !!}">
+        <link rel="stylesheet" href="{!! asset('css/font-awesome.min.css') !!}">
+        <link rel="stylesheet" href="{!! asset('css/bootstrap.css') !!}">
+        <link rel="stylesheet" href="{!! asset('css/magnific-popup.css') !!}">
+        <link rel="stylesheet" href="{!! asset('css/nice-select.css') !!}">
+        <link rel="stylesheet" href="{!! asset('css/animate.min.css') !!}">
+        <link rel="stylesheet" href="{!! asset('css/owl.carousel.css') !!}">
+        <link rel="stylesheet" href="{!! asset('css/main.css') !!}">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    </head>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+    <body>
 
-                    </ul>
+        @include('sweetalert::alert')
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+        <!-- Start Header Area -->
+        @include('include.header')
+        <!-- End Header Area -->
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+        @yield('content')
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <!-- Start Footer Area -->
+        @include('include.footer')
+        <!-- End Footer Area -->
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-</body>
+        <!-- ####################### Start Scroll to Top Area ####################### -->
+        <div id="back-top">
+            <a title="Go to Top" href="#"></a>
+        </div>
+        <!-- ####################### End Scroll to Top Area ####################### -->
+
+        <script src="{!! asset('js/vendor/jquery-2.2.4.min.js') !!}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+        <script src="{!! asset('js/vendor/bootstrap.min.js') !!}"></script>
+        <script src="{!! asset('js/easing.min.js') !!}"></script>
+        <script src="{!! asset('js/hoverIntent.js') !!}"></script>
+        <script src="{!! asset('js/superfish.min.js') !!}"></script>
+        <script src="{!! asset('js/jquery.ajaxchimp.min.js') !!}"></script>
+        <script src="{!! asset('js/jquery.magnific-popup.min.js') !!}"></script>
+        <script src="{!! asset('js/owl.carousel.min.js') !!}"></script>
+        <script src="{!! asset('js/owl-carousel-thumb.min.js') !!}"></script>
+        <script src="{!! asset('js/jquery.sticky.js') !!}"></script>
+        <script src="{!! asset('js/jquery.nice-select.min.js') !!}"></script>
+        <script src="{!! asset('js/parallax.min.js') !!}"></script>
+        <script src="{!! asset('js/waypoints.min.js') !!}"></script>
+        <script src="{!! asset('js/wow.min.js') !!}"></script>
+        <script src="{!! asset('js/jquery.counterup.min.js') !!}"></script>
+        <script src="{!! asset('js/mail-script.js') !!}"></script>
+        <script src="{!! asset('js/main.js') !!}"></script>
+    </body>
+
 </html>
