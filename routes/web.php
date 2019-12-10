@@ -14,3 +14,7 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('welcome');
+//Category
+Route::resource('/category', 'CategoriesController');
+//Band
+Route::resource('/band-artist', 'BandsController');

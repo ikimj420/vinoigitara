@@ -6,7 +6,13 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li><a href="/">Band</a></li>
+                    @auth
+                        @if(Auth::user()->Admin())
+                            <li><a href="/category" class="">C</a></li>
+                            <li><a href="/" class="">SC</a></li>
+                        @endif
+                    @endauth
+                    <li><a href="/band-artist">Band</a></li>
                     <li><a href="/">Song</a></li>
                     <li><a href="/">Chords</a></li>
                     <li><a href="/">Get Some Random Song</a></li>

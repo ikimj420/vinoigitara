@@ -1912,7 +1912,7 @@ pre code {
     font-size: 1rem;
     line-height: 1.5;
     color: #495057;
-    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    background: #fff;
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: .25rem;
@@ -5646,7 +5646,7 @@ button.close {
     flex-direction: column;
     width: 100%;
     pointer-events: auto;
-    background-color: #fff;
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, .2);
     border-radius: .3rem;

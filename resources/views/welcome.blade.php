@@ -35,11 +35,11 @@
             <div class="offset-lg-1 col-lg-6 offset-md-0 col-md-12 about-right">
                 <h1>Songs </h1>
                 <div class="wow fadeIn" data-wow-duration="1s">
-                    <p> 131</p>
+                    <p>131</p>
                 </div>
                 <h1>Bands </h1>
                 <div class="wow fadeIn" data-wow-duration="1s">
-                    <p> 66</p>
+                    <p> @if(!empty($bandsCount)) {!! $bandsCount !!}@endif</p>
                 </div>
                 <h1>Chords </h1>
                 <div class="wow fadeIn" data-wow-duration="1s">
@@ -90,42 +90,28 @@
             </div>
         </div>
         <div class="row align-items-center">
-            <div class="col-lg-5 about-right">
+            <div class="col-lg-4 about-right">
                 <div class="wow fadeIn" data-wow-duration="1s">
                     <img class="img-fluid" src="{!! asset('/storage/images/band.svg') !!}" alt="">
                 </div>
             </div>
-            <div class="offset-lg-1 col-lg-6">
+            <div class="col-lg-8">
                 <div class="courses-right">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <ul class="courses-list">
-                                <li>
-                                    <a class="wow fadeInLeft" href="courses.html" data-wow-duration="1s" data-wow-delay=".1s">
-                                        <i class="fa fa-music"></i> Development
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="wow fadeInLeft" href="courses.html" data-wow-duration="1s" data-wow-delay=".3s">
-                                        <i class="fa fa-book"></i> IT & Software
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <ul class="courses-list">
-                                <li>
-                                    <a class="wow fadeInRight" href="courses.html" data-wow-duration="1s" data-wow-delay="1.3s">
-                                        <i class="fa fa-book"></i> Data Science
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="wow fadeInRight" href="courses.html" data-wow-duration="1s" data-wow-delay="1.1s">
-                                        <i class="fa fa-book"></i> Design
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                        <?php $count = 0; ?>
+                        @forelse($bands as $band)
+                        <?php $count +=4 ?>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <ul class="courses-list">
+                                    <li>
+                                        <a class="wow @if($band->id % 2 != 0) fadeInLeft @else fadeInRight  @endif" href="{!! $band->pathTitle() !!}" data-wow-duration="1s" data-wow-delay="{!! $count/20 !!}s">
+                                            <i class="fa fa-music"></i> {!! $band->name !!}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            @empty
+                        @endforelse
                     </div>
                 </div>
             </div>
