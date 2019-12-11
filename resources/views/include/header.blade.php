@@ -9,13 +9,13 @@
                     @auth
                         @if(Auth::user()->Admin())
                             <li><a href="/category" class="">C</a></li>
-                            <li><a href="/" class="">SC</a></li>
+                            <li><a href="/chordSong" class="">SC</a></li>
                         @endif
                     @endauth
                     <li><a href="/band-artist">Band</a></li>
-                    <li><a href="/">Song</a></li>
-                    <li><a href="/">Chords</a></li>
-                    <li><a href="/">Get Some Random Song</a></li>
+                    <li><a href="/song">Song</a></li>
+                    <li><a href="/chord">Chords</a></li>
+                    <li><a href="/songRandom">Get Some Random Song</a></li>
                     <!-- Authentication Links -->
                     @guest
                         <li> <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a> </li>

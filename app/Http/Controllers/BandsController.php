@@ -22,7 +22,7 @@ class BandsController extends Controller
             return redirect(route('welcome'))->withToastError('No No No!!!');
         }
 
-        $categories = Category::latest()->get();
+        $categories = Category::get();
         $bands = Band::latest()->get();
         return view('bands.index', compact('bands', 'categories'));
     }
@@ -131,7 +131,6 @@ class BandsController extends Controller
         }
 
         $band_artist->update();
-
 
         return redirect(route('band-artist.index'))->withToastSuccess('Band Updated Successfully!');
     }

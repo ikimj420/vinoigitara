@@ -18,3 +18,5 @@ Route::get('/', 'HomeController@index')->name('welcome');
 Route::resource('/category', 'CategoriesController');
 //Band
 Route::resource('/band-artist', 'BandsController');
+//Chord
+Route::resource('/chord', 'ChordsController');

@@ -33,18 +33,24 @@
                 <img class="img-fluid" src="{!! asset('/storage/images/music.svg') !!}" alt="">
             </div>
             <div class="offset-lg-1 col-lg-6 offset-md-0 col-md-12 about-right">
-                <h1>Songs </h1>
-                <div class="wow fadeIn" data-wow-duration="1s">
-                    <p>131</p>
-                </div>
-                <h1>Bands </h1>
-                <div class="wow fadeIn" data-wow-duration="1s">
-                    <p> @if(!empty($bandsCount)) {!! $bandsCount !!}@endif</p>
-                </div>
-                <h1>Chords </h1>
-                <div class="wow fadeIn" data-wow-duration="1s">
-                    <p> 235</p>
-                </div>
+                <a href="/song">
+                    <h1>Songs </h1>
+                    <div class="wow fadeIn" data-wow-duration="1s">
+                        <p> @if(!empty($songsCount)) {!! $songsCount !!}@endif</p>
+                    </div>
+                </a>
+                <a href="/band-artist">
+                    <h1>Bands </h1>
+                    <div class="wow fadeIn" data-wow-duration="1.5s">
+                        <p> @if(!empty($bandsCount)) {!! $bandsCount !!}@endif</p>
+                    </div>
+                </a>
+                <a href="/chord">
+                    <h1>Chords </h1>
+                    <div class="wow fadeIn" data-wow-duration="2s">
+                        <p> @if(!empty($chordsCount)) {!! $chordsCount !!}@endif</p>
+                    </div>
+                </a>
             </div>
         </div>
     </div>

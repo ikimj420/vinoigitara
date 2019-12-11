@@ -26,4 +26,10 @@ class Category extends Model
     {
         return $this->hasMany(\App\Models\Band::class);
     }
+
+    //hasMany Chords
+    public function chords()
+    {
+        return $this->hasMany(\App\Models\Chord::class);
+    }
 }
