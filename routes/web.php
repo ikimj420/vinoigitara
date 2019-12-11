@@ -14,9 +14,13 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('welcome');
+//Random Songs
+Route::get('/songRandom', 'HomeController@rand')->name('songRandom');
 //Category
 Route::resource('/category', 'CategoriesController');
 //Band
 Route::resource('/band-artist', 'BandsController');
 //Chord
 Route::resource('/chord', 'ChordsController');
+//Song
+Route::resource('/song', 'SongsController');

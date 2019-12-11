@@ -2247,7 +2247,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 .post-content-area .single-post {
     margin-bottom: 50px; }
 .post-content-area .single-post .meta-details {
-    text-align: right;
+    text-align: left;
     margin-top: 35px; }
 @media (max-width: 767px) {
     .post-content-area .single-post .meta-details {
@@ -2825,3 +2825,16 @@ body.mobile-nav-active #mobile-nav-toggle {
     transition: all 0.3s ease 0s; }
 
 /*# sourceMappingURL=main.css.map */
+.chords {
+    color: #ffffff !important;
+    font-size: 20px;
+    padding-right: 10px;
+}
+
+.myVideo{
+    position: fixed;
+    bottom: 25px;
+    right: 0;
+    width: 480px;
+    opacity: 0.75%;
+}

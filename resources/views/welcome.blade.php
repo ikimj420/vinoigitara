@@ -9,7 +9,6 @@
             <div class="banner-content col-lg-8 col-md-12">
                 <h1 class="wow fadeIn" data-wow-duration="4s"> </h1>
                 <p class="text-white">  </p>
-
                 <div class="input-wrap">
                     <form action="" class="form-box d-flex justify-content-between">
                         <input type="text" placeholder="Search Courses" class="form-control" name="search">
@@ -36,19 +35,19 @@
                 <a href="/song">
                     <h1>Songs </h1>
                     <div class="wow fadeIn" data-wow-duration="1s">
-                        <p> @if(!empty($songsCount)) {!! $songsCount !!}@endif</p>
+                        <h5> @if(!empty($songsCount)) {!! $songsCount !!}@endif</h5>
                     </div>
                 </a>
                 <a href="/band-artist">
                     <h1>Bands </h1>
                     <div class="wow fadeIn" data-wow-duration="1.5s">
-                        <p> @if(!empty($bandsCount)) {!! $bandsCount !!}@endif</p>
+                        <h5> @if(!empty($bandsCount)) {!! $bandsCount !!}@endif</h5>
                     </div>
                 </a>
                 <a href="/chord">
                     <h1>Chords </h1>
                     <div class="wow fadeIn" data-wow-duration="2s">
-                        <p> @if(!empty($chordsCount)) {!! $chordsCount !!}@endif</p>
+                        <h5> @if(!empty($chordsCount)) {!! $chordsCount !!}@endif</h5>
                     </div>
                 </a>
             </div>
@@ -62,20 +61,20 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-9 offset-1 posts-list">
-                <h2 class="mb-30">Latest Songs</h2>
+                <h2 class="mb-30">Last Added Song</h2>
                 <div class="single-post row">
-                    <div class="col-lg-3  col-md-3 meta-details">
-                        <div class="user-details row">
-                            <p class="user-name col-lg-12 col-md-12 col-6"><a href="#">Mark wiens</a> <span class="lnr lnr-user"></span></p>
-                            <p class="date col-lg-12 col-md-12 col-6"><a href="#">12 Dec, 2017</a> <span class="lnr lnr-calendar-full"></span></p>
-                            <p class="view col-lg-12 col-md-12 col-6"><a href="#">1.2M Views</a> <span class="lnr lnr-eye"></span></p>
-                            <p class="comments col-lg-12 col-md-12 col-6"><a href="#">06 Comments</a> <span class="lnr lnr-bubble"></span></p>
-                        </div>
+                    <div class="col-lg-6  col-md-6 meta-details">
+                        @forelse($songs as $song)
+                            <a href="{!! $song->pathTitle() !!}">
+                                <h4 class="view col-lg-12 col-md-12 col-12">{!! $song->title !!} <span class="lnr lnr-music-note"></span></h4>
+                            </a>
+                        @empty
+                        @endforelse
                     </div>
-                    <div class="col-lg-9 col-md-9 ">
+                    <div class="col-lg-6 col-md-6 ">
                         <a href="/">
                             <div class="feature-img">
-                                <img class="img-fluid" src="img/blog/feature-img1.jpg" alt="">
+                                <img class="img-fluid" src="{!! asset('/storage/images/dance.svg') !!}" alt="song">
                             </div>
                         </a>
                     </div>
@@ -98,7 +97,7 @@
         <div class="row align-items-center">
             <div class="col-lg-4 about-right">
                 <div class="wow fadeIn" data-wow-duration="1s">
-                    <img class="img-fluid" src="{!! asset('/storage/images/band.svg') !!}" alt="">
+                    <img class="img-fluid" src="{!! asset('/storage/images/band.svg') !!}" alt="band">
                 </div>
             </div>
             <div class="col-lg-8">

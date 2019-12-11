@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Band;
 use App\Models\Category;
+use App\Models\Song;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -11,19 +12,11 @@ use Illuminate\Support\Facades\Auth;
 
 class BandsController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     public function index()
     {
-        //check is admin
-        if (!Auth::user()->Admin()){
-            return redirect(route('welcome'))->withToastError('No No No!!!');
-        }
-
         $categories = Category::get();
         $bands = Band::latest()->get();
+
         return view('bands.index', compact('bands', 'categories'));
     }
 
@@ -82,7 +75,8 @@ class BandsController extends Controller
     {
         //category
         $categories = Category::latest()->get();
-        return view('bands.show', compact('band_artist', 'categories'));
+        $songs = Song::with('band')->where('band_id', '=', $band_artist->id)->get();
+        return view('bands.show', compact('band_artist', 'categories', 'songs'));
     }
 
     public function edit()

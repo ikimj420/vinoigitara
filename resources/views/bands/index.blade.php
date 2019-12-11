@@ -59,7 +59,7 @@
                                             </div>
                                             <div class="content-details">
                                                 <h4 class="content-title mx-auto text-uppercase">{!! $band->name !!}</h4>
-                                                <span>5 songs</span>
+                                                <span>{!! count(\App\Models\Song::where('band_id', '=', $band->id)->get()) !!} Songs</span>
                                             </div>
                                         </a>
                                     </div>

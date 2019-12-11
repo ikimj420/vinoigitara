@@ -15,7 +15,7 @@ class Band extends Model
         return url("/band-artist/{$this->id}-".Str::slug($this->name, '_'));
     }
 
-    //url categoryPics
+    //url bandPics
     public function bandPics()
     {
         return asset('/storage/bands/'.$this->pics);
@@ -25,5 +25,11 @@ class Band extends Model
     public function category()
     {
         return $this->belongsTo(\App\Models\Category::class, 'category_id');
+    }
+
+    //hasMany Songs
+    public function songs()
+    {
+        return $this->hasMany(\App\Models\Song::class);
     }
 }

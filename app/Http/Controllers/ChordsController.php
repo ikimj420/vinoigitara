@@ -11,18 +11,8 @@ use Illuminate\Support\Facades\Auth;
 
 class ChordsController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
-        //check is admin
-        if (!Auth::user()->Admin()){
-            return redirect(route('welcome'))->withToastError('No No No!!!');
-        }
-
         //get first 7 Categories
         $categories = Category::whereBetween('id', array(1,7))->get();
 
