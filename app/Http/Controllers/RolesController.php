@@ -4,82 +4,94 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class RolesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        //check is admin
+        if (!Auth::user()->Admin()){
+            return redirect(route('welcome'))->withToastError('No No No!!!');
+        }
+
+        $roles = Role::get();
+        return view('roles.index', compact('roles'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return back();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        //validate save category
+        $validator = Validator::make($request->all(), [
+            'userLevel' => 'required',
+        ]);
+        //display error
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $role = new Role();
+
+        $role->userLevel = htmlspecialchars($request->userLevel);
+
+        $role->save();
+
+        return redirect(route('role.index'))->withToastSuccess('Rola Created Successfully!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Role  $role
-     * @return \Illuminate\Http\Response
-     */
     public function show(Role $role)
     {
-        //
+        //check is admin
+        if (!Auth::user()->Admin()){
+            return redirect(route('welcome'))->withToastError('No No No!!!');
+        }
+
+        return view('roles.show', compact('role'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Role  $role
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Role $role)
     {
-        //
+        return back();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Role  $role
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Role $role)
     {
-        //
+        //validate update category
+        $validator = Validator::make($request->all(), [
+            'userLevel' => 'required',
+        ]);
+        //display error
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $role->userLevel = htmlspecialchars($request->userLevel);
+
+        $role->update();
+
+        return redirect(route('role.index'))->withToastSuccess('Rola Updated Successfully!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Role  $role
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Role $role)
     {
-        //
+        //delete role
+        $role->delete();
+
+        return redirect(route('role.index'))->withToastSuccess('Rola Deleted Successfully!');
     }
 }

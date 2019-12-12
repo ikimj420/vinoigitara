@@ -17,6 +17,7 @@ class CreateRolesTable extends Migration
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->string('userLevel');
+            $table->timestamps();
         });
     }
 

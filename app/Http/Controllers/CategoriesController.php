@@ -66,7 +66,6 @@ class CategoriesController extends Controller
 
         $category->save();
 
-
         return redirect(route('category.index'))->withToastSuccess('Category Created Successfully!');
     }
 
@@ -87,11 +86,6 @@ class CategoriesController extends Controller
         return back();
     }
 
-    /**
-     * @param Request $request
-     * @param $id
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function update(Request $request, Category $category)
     {
         //validate update category
@@ -124,7 +118,6 @@ class CategoriesController extends Controller
         }
 
         $category->update();
-
 
         return redirect(route('category.index'))->withToastSuccess('Category Updated Successfully!');
     }

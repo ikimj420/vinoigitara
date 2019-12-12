@@ -8,6 +8,7 @@
                 <ul class="nav-menu">
                     @auth
                         @if(Auth::user()->Admin())
+                            <li><a href="/role" class="">R</a></li>
                             <li><a href="/category" class="">C</a></li>
                             <li><a href="/chordSong" class="">SC</a></li>
                         @endif
