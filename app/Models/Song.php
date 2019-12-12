@@ -20,4 +20,9 @@ class Song extends Model
     {
         return $this->belongsTo(\App\Models\Band::class, 'band_id');
     }
+
+    public function chordsSong()
+    {
+        return $this->hasMany(\App\Models\ChordsSong::class);
+    }
 }

@@ -26,4 +26,9 @@ class Chord extends Model
     {
         return $this->belongsTo(\App\Models\Category::class, 'category_id');
     }
+
+    public function chordsSong()
+    {
+        return $this->hasMany(\App\Models\ChordsSong::class);
+    }
 }

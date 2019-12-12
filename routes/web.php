@@ -26,3 +26,5 @@ Route::resource('/band-artist', 'BandsController');
 Route::resource('/chord', 'ChordsController');
 //Song
 Route::resource('/song', 'SongsController');
+//ChordsSong
+Route::resource('/chordsSong', 'ChordsSongsController');

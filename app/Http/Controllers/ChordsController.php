@@ -58,7 +58,6 @@ class ChordsController extends Controller
 
         $chord->save();
 
-
         return redirect(route('chord.index'))->withToastSuccess('Chord Created Successfully!');
     }
 

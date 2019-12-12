@@ -10,7 +10,7 @@
                         @if(Auth::user()->Admin())
                             <li><a href="/role" class="">R</a></li>
                             <li><a href="/category" class="">C</a></li>
-                            <li><a href="/chordSong" class="">SC</a></li>
+                            <li><a href="/chordsSong" class="">CS</a></li>
                         @endif
                     @endauth
                     <li><a href="/band-artist">Band</a></li>

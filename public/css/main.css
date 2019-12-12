@@ -985,10 +985,10 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #e66686; }
 
 .single-gallery-image {
-    margin-top: 30px;
+    margin-top: 10px;
     background-repeat: no-repeat !important;
     background-position: center center !important;
-    background-size: cover !important;
+    background-size: contain !important;
     height: 200px; }
 
 .list-style {
