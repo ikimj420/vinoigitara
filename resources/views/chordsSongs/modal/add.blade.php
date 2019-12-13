@@ -24,7 +24,6 @@
                             @endforeach
                         </select>
                     </div>
-
                     <div class="form-group">
                         <label for="chord_id[]">Select Chord</label>
                         <select name="chord_id[]" class="form-control" id="chord_id[]">
@@ -34,12 +33,9 @@
                             @endforeach
                         </select>
                     </div>
-
                     <div class="field_wrapper">
                         <a href="javascript:void(0);" class="add_button" title="Add field"><img src="{!! asset('/storage/images/plus.svg') !!}"/></a>
                     </div>
-
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close <i class="ion-ios-close"></i></button>

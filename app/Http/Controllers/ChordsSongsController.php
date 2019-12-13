@@ -56,29 +56,40 @@ class ChordsSongsController extends Controller
             return redirect(route('welcome'))->withToastError('No No No!!!');
         }
 
-        $chordsSong = ChordsSong::with('Song')->with('Chord')->where('song_id', '=', $id)->get();
+        $chordsSongs = ChordsSong::with('Song')->with('Chord')->where('song_id', '=', $id)->get();
+        $songs = Song::latest()->get();
+        $chords = Chord::latest()->get();
 
-        return view('chordsSongs.show', compact('chordsSong'));
+        return view('chordsSongs.show', compact('chordsSongs', 'songs', 'chords'));
     }
 
-    public function edit(ChordsSong $chordsSong)
+    public function edit()
     {
         return back();
     }
 
-    public function update(Request $request, ChordsSong $chordsSong)
+    public function update(Request $request, $id)
     {
-        //
+        $chordsSongs = ChordsSong::with('Song')->with('Chord')->where('song_id','=', $id)->get();
+
+        foreach ($chordsSongs as $s){
+            $s->song_id = $request->input('song_id');
+            $s->chord_id = $request->input( $s->id.'chord_id');
+
+            $s->save();
+        }
+
+        return redirect(route('chordsSong.index'))->withToastSuccess('ChordsSong Updated Successfully!');
     }
 
     public function destroy($id)
     {
         //delete chordsSong
-        $songChords = ChordsSong::with('Song')->where('song_id', '=', $id)->get();
-        foreach ($songChords as $s){
+        $chordsSong = ChordsSong::with('Song')->where('song_id', '=', $id)->get();
+        foreach ($chordsSong as $s){
             $s->delete($s->id);
         }
 
-        return redirect(route('chordsSongs.index'))->withToastSuccess('ChordsSong Deleted Successfully!');
+        return redirect(route('chordsSong.index'))->withToastSuccess('ChordsSong Deleted Successfully!');
     }
 }

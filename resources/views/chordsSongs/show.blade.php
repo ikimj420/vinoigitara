@@ -30,12 +30,12 @@
             <section class="post-content-area single-post-area">
                 <div class="container">
                     <div class="row">
-{{--                        <div class="mt-3">
+                        <div class="mt-3">
                             @include('chordsSongs.modal.update')
-                        </div>--}}
-{{--                        <div class="mt-3 ml-3">
+                        </div>
+                        <div class="mt-3 ml-3">
                             @include('chordsSongs.modal.delete')
-                        </div>--}}
+                        </div>
                     </div>
                 </div>
             </section>
@@ -50,7 +50,7 @@
 
 
                     <div class="row gallery-item col-lg-8">
-                        @forelse($chordsSong as $c )
+                        @forelse($chordsSongs as $c )
                             <div class="col-lg-4">
                                 <a href="{!! $c->chord->chordPics() !!}" class="img-pop-up"><div class="single-gallery-image" style="background: url({!! $c->chord->chordPics() !!});"></div></a>
                             </div>
