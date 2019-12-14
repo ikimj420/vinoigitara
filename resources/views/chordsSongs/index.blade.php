@@ -70,6 +70,9 @@
                 @empty
                 @endforelse
             </div>
+            <nav class="blog-pagination justify-content-center d-flex">
+                {!! $songs->links() !!}
+            </nav>
         </div>
     </section>
     <!-- End top-category-widget Area -->

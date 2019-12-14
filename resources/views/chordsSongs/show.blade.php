@@ -46,18 +46,14 @@
     <section class="post-content-area">
         <div class="container">
             <div class="row">
-
-
-
-                    <div class="row gallery-item col-lg-8">
-                        @forelse($chordsSongs as $c )
-                            <div class="col-lg-4">
-                                <a href="{!! $c->chord->chordPics() !!}" class="img-pop-up"><div class="single-gallery-image" style="background: url({!! $c->chord->chordPics() !!});"></div></a>
-                            </div>
-                            @empty
-                        @endforelse
-                    </div>
-
+                <div class="row gallery-item col-lg-8">
+                    @forelse($chordsSongs as $c )
+                        <div class="col-lg-4">
+                            <a href="{!! $c->chord->chordPics() !!}" class="img-pop-up"><div class="single-gallery-image" style="background: url({!! $c->chord->chordPics() !!});"></div></a>
+                        </div>
+                        @empty
+                    @endforelse
+                </div>
                 <div class="col-lg-4 sidebar-widgets">
                     <div class="widget-wrap">
                         <div class="single-sidebar-widget search-widget">

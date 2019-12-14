@@ -75,8 +75,6 @@ class CategoriesController extends Controller
         if (!Auth::user()->Admin()){
             return redirect(route('welcome'))->withToastError('No No No!!!');
         }
-        //SEO
-        //$this->setSeo( $category->name, $category->desc);
 
         return view('categories.show', compact('category'));
     }

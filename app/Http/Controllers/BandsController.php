@@ -67,7 +67,6 @@ class BandsController extends Controller
 
         $band->save();
 
-
         return redirect(route('band-artist.index'))->withToastSuccess('Band Created Successfully!');
     }
 

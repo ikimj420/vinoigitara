@@ -67,6 +67,9 @@
                     @empty
                 @endforelse
             </div>
+            <nav class="blog-pagination justify-content-center d-flex">
+                {!! $bands->links() !!}
+            </nav>
         </div>
     </section>
     <!-- End post-content Area -->

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Band;
+use App\Models\ChordsSong;
 use App\Models\Song;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -12,7 +13,7 @@ class SongsController extends Controller
 {
     public function index()
     {
-        $bands = Band::latest()->get();
+        $bands = Band::orderBy('category_id')->paginate(9);
         $songs = Song::latest()->get();
         return view('songs.index', compact('bands', 'songs'));
     }
@@ -51,11 +52,12 @@ class SongsController extends Controller
         return redirect(route('song.index'))->withToastSuccess('Song Created Successfully!');
     }
 
-    public function show(Song $song)
+    public function show($id)
     {
-        //Bands
+        $song = Song::findOrFail($id);
         $bands = Band::latest()->get();
-        return view('songs.show', compact('song', 'bands'));
+        $chords = ChordsSong::with('Chord')->where('song_id', $id)->get();
+        return view('songs.show', compact('song', 'bands', 'chords'));
     }
 
     public function edit(Song $song)

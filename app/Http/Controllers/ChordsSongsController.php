@@ -23,8 +23,8 @@ class ChordsSongsController extends Controller
             return redirect(route('welcome'))->withToastError('No No No!!!');
         }
 
-        $chordsSongs = ChordsSong::get();
-        $songs = Song::latest()->get();
+        $chordsSongs = ChordsSong::latest()->get();
+        $songs = Song::latest()->paginate(9);
         $chords = Chord::get();
         return view('chordsSongs.index', compact('chordsSongs', 'songs', 'chords'));
     }

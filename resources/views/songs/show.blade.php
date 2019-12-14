@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row d-flex align-items-center justify-content-center">
                 <div class="about-content col-lg-12">
-                    <h1 class="text-white"> Song - {!! $song->title !!} <br> Band - {!! $song->band['name'] !!}</h1>
+                    <h1 class="text-white"> Song - {!! $song->title !!} <br> <a href="{!! $song->band->pathTitle() !!}">Band - {!! $song->band['name'] !!}</a></h1>
                     <div class="link-nav">
 						<span class="box">
 							<a href="/">Home </a>
@@ -47,6 +47,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 posts-list">
+                    <div class="single-post row">
+                        <h1>Used Chords</h1>
+                        <div class="col-lg-12  col-md-12 meta-details">
+                            <div class="user-detailsm">
+                                @forelse($chords as $chord )
+                                    <a href="{!! $chord->chord->chordPics() !!}" class="img-pop-up"> {!! $chord->chord->name !!} </a>
+                                @empty
+                                @endforelse
+                            </div>
+                        </div>
+                    </div>
                     <div class="single-post row">
                         <div class="col-lg-12  col-md-12 meta-details">
                             <div class="user-detailsm">
