@@ -14,8 +14,9 @@ class SongsController extends Controller
     public function index()
     {
         $bands = Band::orderBy('category_id')->paginate(9);
+        $bandss = Band::orderBy('category_id')->get();
         $songs = Song::latest()->get();
-        return view('songs.index', compact('bands', 'songs'));
+        return view('songs.index', compact('bands', 'bandss', 'songs'));
     }
 
     public function create()

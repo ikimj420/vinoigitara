@@ -67,16 +67,8 @@
         </div>
     </div>
 </div>
-<script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
+<script src="//cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
 <script>
-    ClassicEditor
-        .create( document.querySelector( '#albums' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-    ClassicEditor
-        .create( document.querySelector( '#desc' ) )
-        .catch( error => {
-            console.error( error );
-        } );
+    CKEDITOR.replace( 'albums' );
+    CKEDITOR.replace( 'desc' );
 </script>
