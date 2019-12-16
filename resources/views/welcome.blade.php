@@ -11,9 +11,9 @@
                 <p class="text-white">  </p>
                 <div class="input-wrap">
                     <form action="" class="form-box d-flex justify-content-between">
-                        <input type="text" placeholder="Search Courses" class="form-control" name="search">
-                        <button type="submit" class="btn search-btn">Search</button>
+                        <input type="text" placeholder="Search Courses" class="form-control" id="search" name="search">
                     </form>
+                    <div id="display" class="text-center"> </div>
                 </div>
             </div>
         </div>
@@ -124,5 +124,32 @@
     </div>
 </section>
 <!-- End Courses Area -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#search").keyup(function() {
+            var output = $('#search').val();
+            if (output == "") {
+                $("#display").html("");
+            }
+            else {
+                $.ajax({
+                    type: "GET",
+                    url: "searchW",
+                    data: {
+                        search: output
+                    },
+                    success: function(html) {
+                        $("#display").html(html).show();
+                    }
+                });
+            }
+        });
+    });
+</script>
+<script type="text/javascript">
+    $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+</script>
 
 @endsection

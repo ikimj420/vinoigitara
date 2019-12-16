@@ -28,3 +28,8 @@ Route::resource('/chord', 'ChordsController');
 Route::resource('/song', 'SongsController');
 //ChordsSong
 Route::resource('/chordsSong', 'ChordsSongsController');
+//search
+Route::get('/searchS', 'SearchController@song');
+Route::get('/searchC', 'SearchController@chord');
+Route::get('/searchB', 'SearchController@band');
+Route::get('/searchW', 'SearchController@welcome');
