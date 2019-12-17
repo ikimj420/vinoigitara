@@ -21,21 +21,21 @@ class SearchController extends Controller
             if($songs)
             {
                 foreach ($songs as $key => $song) {
-                    $output.='<div class="container"><div class="row"><div class="mt-4 col-lg-12"><a href="/show/'.$song->id.'">'.$song->title.' &nbsp;&nbsp;&nbsp; '.$song->band["name"].'</a></div></div></div>';
+                    $output.='<div class="container"><div class="row"><div class="mt-4 col-lg-12"><a href="/song/'.$song->id.'">'.$song->title.' &nbsp;&nbsp;&nbsp; '.$song->band["name"].'</a></div></div></div>';
                 }
 
                 foreach ($bands as $key => $band) {
-                    $output.='<div class="container"><div class="row"><div class="mt-4 col-lg-12"><br><a href="/artist/'.$band->id.'">'.$band->name.'</a></div></div></div>';
+                    $output.='<div class="container"><div class="row"><div class="mt-4 col-lg-12"><br><a href="/band-artist/'.$band->id.'">'.$band->name.'</a></div></div></div>';
                 }
 
                 foreach ($chords as $key => $chord) {
-                    $output.='<div class="container"><div class="row"><div class="mt-4 col-lg-12"><a href="/pictures/'.$chord->id.'">'.$chord->name.'</a></div></div></div>';
+                    $output.='<div class="container"><div class="row"><div class="mt-4 col-lg-12"><a href="/chord/'.$chord->id.'">'.$chord->name.'</a></div></div></div>';
                 }
 
                 if(!empty($output))
                     return Response($output);
                 else
-                    return 'No Song Artist-Band Chord Found';
+                    return 'No Song Artist-Band Or Chord Found';
             }
         }
     }

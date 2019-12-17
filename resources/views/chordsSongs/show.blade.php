@@ -15,6 +15,12 @@
 							<a href="/chordsSong">Go Back</a>
 						</span>
                     </div>
+                    <div class="input-wrap p-2">
+                        <form action="" class="form-box d-flex justify-content-between">
+                            <input type="text" placeholder="Search Song Artist-Band Or Chord" class="form-control" id="search" name="search">
+                        </form>
+                        <div id="display" class="text-center"> </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -68,6 +74,33 @@
         </div>
     </section>
     <!-- End post-content Area -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#search").keyup(function() {
+                var output = $('#search').val();
+                if (output == "") {
+                    $("#display").html("");
+                }
+                else {
+                    $.ajax({
+                        type: "GET",
+                        url: "/searchW",
+                        data: {
+                            search: output
+                        },
+                        success: function(html) {
+                            $("#display").html(html).show();
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+    </script>
 
 @endsection
 

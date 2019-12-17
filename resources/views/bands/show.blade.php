@@ -15,6 +15,12 @@
 							<a href="/band-artist">Go Back</a>
 						</span>
                     </div>
+                    <div class="input-wrap p-2">
+                        <form action="" class="form-box d-flex justify-content-between">
+                            <input class="form-control" placeholder="Search Bend - Artist" id="search" name="search" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Bend - Artist'">
+                        </form>
+                        <div id="display" class="text-center"> </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,17 +75,6 @@
                             <p><span>Description </span> <br>{!! $band_artist->desc !!}</p>
                             <hr>
                             <p><span>Albums </span> <br>{!! $band_artist->albums !!}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 sidebar-widgets">
-                    <div class="widget-wrap">
-                        <div class="single-sidebar-widget search-widget">
-                            <form class="search-form" method="GET">
-                                {{--<input placeholder="Search Bend - Artist" id="search" name="search" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Bend - Artist'">--}}
-                                <input type="text" placeholder="Search Courses" class="form-control" id="search" name="search">
-                            </form>
-                            <div id="display" class="text-center"> </div>
                         </div>
                     </div>
                 </div>

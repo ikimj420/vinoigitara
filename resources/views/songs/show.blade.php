@@ -15,6 +15,12 @@
 							<a href="/song">Go Back</a>
 						</span>
                     </div>
+                    <div class="input-wrap p-2">
+                        <form action="" class="form-box d-flex justify-content-between">
+                            <input class="form-control" placeholder="Search Songs" id="search" name="search" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Songs'">
+                        </form>
+                        <div id="display" class="text-center"> </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -63,16 +69,6 @@
                             <div class="user-detailsm">
                                 <p class="view col-lg-12 col-md-12 col-12">{!! $song->song !!}</p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 sidebar-widgets">
-                    <div class="widget-wrap">
-                        <div class="single-sidebar-widget search-widget">
-                            <form class="search-form">
-                                <input placeholder="Search Songs" id="search" name="search" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Songs'">
-                            </form>
-                            <div id="display" class="text-center"> </div>
                         </div>
                     </div>
                 </div>

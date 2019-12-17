@@ -11,7 +11,7 @@
                 <p class="text-white">  </p>
                 <div class="input-wrap">
                     <form action="" class="form-box d-flex justify-content-between">
-                        <input type="text" placeholder="Search Courses" class="form-control" id="search" name="search">
+                        <input type="text" placeholder="Search Song Artist-Band Or Chord" class="form-control" id="search" name="search">
                     </form>
                     <div id="display" class="text-center"> </div>
                 </div>
